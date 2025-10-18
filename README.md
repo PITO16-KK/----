@@ -1,0 +1,195 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post 2 - ERD: Attribute, Entitas, Relasi</title>
+  <style>
+    :root{
+      --pink:#ff8fb1;
+      --ungu:#8b5cf6;
+      --abu:#8d7792;
+      --hitam:#0b0b0b;
+      --biru:#4da6ff;
+      --glass: rgba(255,255,255,0.6);
+      --card-shadow: 0 8px 24px rgba(11,11,11,0.12);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#8268ac,#000000);color:var(--hitam)}
+
+    .container{max-width:980px;margin:28px auto;padding:20px}
+    
+    header{display:flex;align-items:center;gap:18px;padding:18px;border-radius:18px;background:linear-gradient(90deg,rgba(238, 230, 255, 0.829),rgba(144, 89, 154, 0.708));box-shadow:var(--card-shadow)}
+
+    .avatar{
+      width:100px;height:100px;border-radius:18px;overflow:hidden;flex:0 0 100px;background:linear-gradient(135deg,var(--pink),var(--ungu));display:grid;place-items:center;border:4px solid rgba(255,255,255,0.6);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .profile-info h1{margin:0;font-size:1.25rem;color:#371b5e}
+    .profile-info p{margin:6px 0 0;color:#371b5e}
+    .badges{margin-top:8px;display:flex;gap:8px;color:#371b5e}
+    .badge{background:#e6e6e9;padding:6px 10px;border-radius:999px;font-size:12px}
+
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 12px 12px;
+    }
+    .navbar .logo { font-weight: bold; font-size: 18px; }
+    .navbar ul { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; }
+    .navbar ul li a { color: white; text-decoration: none; font-weight: 600; }
+    .navbar ul li a:hover { text-decoration: underline; }
+
+    /* Konten */
+    .post {
+      background:linear-gradient(180deg,rgba(255, 255, 255, 0.8),rgba(208, 195, 220, 0.7));
+      border-radius:14px;
+      box-shadow:var(--card-shadow);
+      padding:20px;
+      margin-top:20px;
+    }
+    .post h1 { color:#dc27b5; margin-top:0; }
+    .post p { line-height:1.6; color:#222; }
+    .post ul { margin:10px 0 10px 20px; }
+    .post h2 { color:#dc27b5; margin-top:0; }
+
+    .img-container{text-align:center;margin:16px 0;}
+    .img-container img{max-width:80%;border-radius:10px;box-shadow:0 0 20px rgba(56,182,255,0.25);border:1px solid rgba(56,182,255,0.2);transition:transform .3s ease;}
+    .img-container img:hover{transform:scale(1.03);box-shadow:0 0 25px rgba(56,182,255,0.4);}
+    .img-caption{font-size:12px;color:#9aa8bf;margin-top:6px;font-style:italic;}
+    pre {
+      background: #f3e5f5;
+      padding: 10px;
+      border-radius: 10px;
+      overflow-x: auto;
+      color: #6f42c1;
+      font-weight: bold;
+    }
+    footer{margin-top:20px;text-align:center;color:#ccc;font-size:13px}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🌸 My Blog</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="blog.html">Tugas Blog</a></li>
+    </ul>
+  </nav>
+
+    <div class="container">
+    <header>
+      <div class="avatar" id="avatar">
+        <div class="avatar" id="avatar">
+        <img src="foto1.jpg" alt="Foto Profil" class="profile-img">
+      </div>
+    </div>
+      <div class="profile-info">
+          <h1>KAISHA KAMILA PUSPITO</h1>
+          <p>Teknik Informatika UBP Karawang</p>
+          <div class="badges">
+            <span class="badge">NIM : 24416255201028</span>
+            <span class="badge">if24.kaishapuspito@mhs.ubpkarawang.ac.id</span>
+            <span class="badge">Basis Data</span>
+          </div>
+      </div>
+    </header>
+
+  <div class="container">
+    <div class="post">
+      <h1>🩺 Post 1: Apa itu Primary Key, Foreign Key, dan Candidate Key?</h1>
+      <ul>
+        <li><strong>Primary Key (Kunci Utama)</strong> 
+          <p>→ Primary Key adalah atribut atau kolom yang digunakan untuk mengenali setiap baris data secara unik dalam sebuah tabel.Tidak boleh ada duplikasi atau nilai kosong (NULL) pada kolom ini.</p>
+          <strong>Fungsi:</strong><p>Sebagai identitas unik dari setiap data pada tabel agar sistem dapat membedakan satu record dengan yang lain.</p></li>
+        <li><strong>Foreign Key (Kunci Tamu)</strong> 
+          <p>→ Foreign Key adalah kolom yang digunakan untuk menghubungkan satu tabel dengan tabel lain. Nilai Foreign Key diambil dari kolom Primary Key tabel lain agar dapat membentuk relasi antar entitas.</p>
+          <strong>Fungsi:</strong><p>Menjaga integritas data dan membentuk hubungan antar tabel seperti one-to-many atau many-to-many.</p></li>
+        <li><strong>Candidate Key</strong> 
+          <p>→ Candidate Key adalah satu atau beberapa atribut yang dapat menjadi kandidat Primary Key karena nilainya unik. Namun hanya satu yang dipilih sebagai Primary Key, sementara yang lain tetap dapat menjadi candidate.</p>
+          <strong>Fungsi:</strong><p>Sebagai alternatif identitas unik untuk data dalam tabel.</p></li>
+      <h1>🏥 Contoh Penerapan pada ERD Sistem Apotek</h1>
+      <div class="img-container">
+        <img src="basdat1.png" alt="Contoh Primary, Foreign, Candidate Key">
+        <p class="img-caption">Gambar: Contoh relasi tabel dengan Primary Key,Foreign Key, dan Candidate Key</p>
+      </div>
+      <h2>💊Tabel Obat - Atribut</h2>
+      <pre> 
+        kode_obat → Primary Key, sebagai identitas unik obat.
+        nama_obat → Nama dari masing-masing obat.
+        harga → Harga jual per unit obat.
+        stok → Jumlah persediaan obat yang tersedia.
+        id_supplier → Foreign Key yang menghubungkan obat dengan supplier penyedia obat tersebut.
+    <br>Relasi: <em>Satu supplier dapat memasok banyak obat (one-to-many).</em></pre>
+    <h2>🚚Tabel Supplier - Atribut</h2>
+      <pre> 
+        id_supplier → Primary Key.
+        nama_supplier → Nama penyedia obat.
+        no_telp → Nomor kontak supplier.
+        alamat → Alamat lengkap supplier.
+    <br>Relasi: <em>Satu supplier bisa memasok banyak obat → relasi one-to-many ke tabel obat.</em></pre>
+    <h2>🧍‍♀️Tabel Pelanggan - Atribut</h2>
+      <pre> 
+        id_pelanggan → Primary Key.
+        nama_pelanggan → Nama pelanggan.
+        email → Alamat email pelanggan.
+        no_hp → Nomor telepon pelanggan.
+        alamat → Alamat pelanggan.
+    <br>Relasi: <em>Satu pelanggan bisa melakukan banyak transaksi (one-to-many ke tabel transaksi)</em></pre>  
+    <h2>🧍‍♂️Tabel Karyawan - Atribut</h2>
+      <pre> 
+        id_karyawan → Primary Key.
+        nama_karyawan → Nama lengkap pegawai.
+        jabatan → Posisi atau peran dalam apotek.
+        username, password → Digunakan untuk login ke sistem.
+    <br>Relasi: <em>Satu karyawan dapat melayani banyak transaksi (one-to-many ke tabel transaksi).</em></pre> 
+    <h2>🧾Tabel Transaksi - Atribut</h2>
+      <pre> 
+        id_transaksi → Primary Key.
+        tanggal → Tanggal transaksi dilakukan.
+        total → Total pembayaran dari seluruh item yang dibeli.
+        id_pelanggan → Foreign Key yang menghubungkan ke tabel pelanggan.
+        id_karyawan → Foreign Key yang menghubungkan ke tabel karyawan.
+    <br>Relasi: <em>Satu transaksi bisa memiliki banyak detail obat → relasi one-to-many ke tabel detail_transaksi.</em></pre> 
+    <h2>🧴Tabel detail_transaksi - Atribut</h2>
+      <pre> 
+       id_detail → Primary Key.
+       id_transaksi → Foreign Key ke tabel transaksi.
+       kode_obat → Foreign Key ke tabel obat.
+       jumlah → Banyaknya obat yang dibeli.
+       subtotal → Harga total untuk obat tersebut (harga × jumlah).
+    <br>Relasi: <em>Relasi many-to-many antara obat dan transaksi dipecah menjadi dua 
+      relasi one-to-many menggunakan tabel detail_transaksi.</em></pre> 
+    </div>
+
+      <div class="container">
+    <div class="post">
+      <h1>🔗 Post 2: Apa itu Relation pada ERD? Mengapa Many-to-Many Tidak Baik Digunakan pada ERD</h1>
+      <h2>🔍 1. Pengertian Relation pada ERD</h2>
+      <p> → Relation (Relasi) adalah hubungan logis antara dua atau lebih entitas dalam suatu sistem database. Relasi ini digunakan untuk menunjukkan bagaimana data pada satu tabel terhubung dengan data pada tabel lain.
+      <br>Jenis-jenis Relasi:
+      <ul>
+        <li><strong>One-to-One (1:1)</strong> → Setiap entitas di tabel A hanya berhubungan dengan satu entitas di tabel B.  
+          <br>Contoh: <em>Satu karyawan memiliki satu akun login.</em>.</li>
+        <li><strong>One-to-Many (1:N)</strong> → Satu entitas di tabel A bisa terhubung dengan banyak entitas di tabel B.  
+          <br>Contoh: <em>Satu supplier dapat memasok banyak obat.</em>.</li>
+        <li><strong>Many-to-Many (M:N)</strong> → Banyak entitas di tabel A bisa berhubungan dengan banyak entitas di tabel B. 
+          <br>Contoh: <em>Banyak transaksi bisa memiliki banyak obat, dan satu obat bisa muncul di banyak transaksi.</em></li>
+      </ul>
+      <h2>⚠️ 2. Mengapa Many-to-Many Tidak Baik Digunakan pada ERD</h2>
+      <p> → Relasi many-to-many (M:N) tidak direkomendasikan langsung dalam ERD karena tidak bisa diimplementasikan langsung dalam database relasional seperti MySQL. Hubungan ini menimbulkan duplikasi data dan sulit dikelola secara efisien.</p>
+      </div>
+    <footer>
+      © 2025 Blog Basis Data | Kaisha | <a href="https://www.ubpkarawang.ac.id" target="_blank" style="color:#fff">UBP Karawang</a>
+    </footer>
+</body>
+</html>
