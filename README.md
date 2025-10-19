@@ -179,22 +179,22 @@
       <!-- Gambar tambahan -->
        <h3>2. Tabel Sistem Informasi Perpustakaan Digital</h3>
       <div class="img-container">
-        <img src="./foto/tabel2.png" alt="ERD Apotek">
+        <img src="tabel2.png" alt="ERD Apotek">
         <p class="img-caption">Gambar 1: Sistem Informasi Perpustakaan Digital</p>
       </div>
       <h3>3. Tabel Sistem E-Commerce Fashion Store</h3>
       <div class="img-container">
-        <img src="./foto/tabel3.png" alt="ERD Apotek">
+        <img src="tabel3.png" alt="ERD Apotek">
         <p class="img-caption">Gambar 2: Sistem E-Commerce Fashion Store</p>
       </div>
       <h3>4. Tabel Sistem Akademik Kampus</h3>
       <div class="img-container">
-        <img src="./foto/tabel4.png" alt="ERD Apotek">
+        <img src="tabel4.png" alt="ERD Apotek">
         <p class="img-caption">Gambar 4: Sistem Akademik Kampus</p>
       </div>
       <h3>5. Tabel Sistem Reservasi Hotel</h3>
       <div class="img-container">
-        <img src="./foto/tabel5.png" alt="ERD Apotek">
+        <img src="tabel5.png" alt="ERD Apotek">
         <p class="img-caption">Gambar 5: Sistem Reservasi Hotel</p>
       </div>
     </div>
